@@ -140,3 +140,6 @@ vite.config.ts.timestamp-*
 
 # 原版
 bak
+
+# 锁文件
+pnpm-lock.yaml

@@ -153,14 +153,12 @@
       "description": "__MSG_cmd_ungroup_this_group__"
     }
   },
-  "default_locale": "en",
   "description": "__MSG_extDescription__",
   "icons": {
     "128": "icon/128.png",
     "16": "icon/16.png",
     "48": "icon/48.png"
   },
-  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4iCnCV/YFExfaLnzUIjGD+AXAi6C48iFJa9T4HD3ix19SUHc7z+zDBqn7OQdU+xCpiAkBoY1BtTszof3jfk7ZykEOPUkeKpcz9obssJOK2C8/Io/bmW1JyMuKsVvunX3jXqJbGOXOFlVwww+XAI/yhHpFp1kzkW1kanUtl6EgOLK2kZ8u69Own0rmNz6TkgmKieHBHZfBkUXaTZJUxNEAlj9EczcP3UdoQCZWCWGgoQsfkMv5CPnPFJRvCq21ii58HcZbzUdvjhaVccel4DWFAQv+E/7nNyIuvuGcFybYByxjJB1vDUqvboA4JVAKeNCCTCw5tZ4i+xzYbogKRLGLQIDAQAB",
   "manifest_version": 3,
   "minimum_chrome_version": "104",
   "name": "__MSG_extName__",
