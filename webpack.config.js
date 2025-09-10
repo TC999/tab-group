@@ -28,7 +28,12 @@ export default {
     rules: [
       {
         test: /\.ts$/,
-        use: 'ts-loader',
+        use: {
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true
+          }
+        },
         exclude: /node_modules/
       },
       {
@@ -53,24 +58,12 @@ export default {
           to: 'img/[name][ext]'
         },
         {
-          from: 'src/_locales/**/*',
-          to: '_locales/[path][name][ext]'
-        },
-        {
-          from: 'src/help/**/*',
-          to: 'help/[path][name][ext]'
-        },
-        {
           from: 'src/css/**/*.css',
           to: 'css/[name][ext]'
         },
         {
           from: 'src/jslib/**/*',
           to: 'jslib/[name][ext]'
-        },
-        {
-          from: 'src/img/**/*',
-          to: 'img/[name][ext]'
         }
       ]
     }),

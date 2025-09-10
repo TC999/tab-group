@@ -1,6 +1,14 @@
 // 导入功能实现
+import { GroupStore } from './group-store';
+import { RuleStore } from './rule-store';
+import type { TabGroup } from './types';
+import type { Rule } from './types';
 
 document.addEventListener('DOMContentLoaded', () => {
+    // 初始化存储实例
+    const groupStore = new GroupStore();
+    const ruleStore = new RuleStore();
+
     // 导入按钮点击事件
     const importBtn = document.getElementById('import-btn');
     const fileInput = document.getElementById('file-input');
@@ -48,13 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // 导入标签组
-            if (data.groups) {
-                await importGroups(data.groups);
+            if (data.groups && Array.isArray(data.groups)) {
+                await importGroups(data.groups as TabGroup[]);
             }
 
             // 导入规则
-            if (data.rules) {
-                await importRules(data.rules);
+            if (data.rules && Array.isArray(data.rules)) {
+                await importRules(data.rules as Rule[]);
             }
 
             showStatus('数据导入成功！', 'success');
@@ -93,28 +101,49 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!data || typeof data !== 'object') {
             return false;
         }
-        return true;
+        // 检查是否至少包含groups或rules
+        return data.groups || data.rules;
     }
 
     // 导入标签组
-    async function importGroups(groups: any[]): Promise<void> {
-        for (const group of groups) {
-            try {
-                await chrome.storage.local.set({ [`group_${group.id}`]: group });
-            } catch (error) {
-                console.warn(`导入标签组失败: ${group.name}`, error);
+    async function importGroups(groups: TabGroup[]): Promise<void> {
+        try {
+            // 先获取现有的标签组，避免覆盖
+            const existingGroups = await groupStore.getAllGroups();
+            const existingGroupIds = new Set(existingGroups.map(g => g.id));
+            
+            // 只导入新的标签组
+            const groupsToImport = groups.filter(g => !existingGroupIds.has(g.id));
+            
+            for (const group of groupsToImport) {
+                await groupStore.saveGroup(group);
             }
+            
+            console.log(`成功导入 ${groupsToImport.length} 个标签组`);
+        } catch (error) {
+            console.error('批量导入标签组失败:', error);
+            throw error;
         }
     }
 
     // 导入规则
-    async function importRules(rules: any[]): Promise<void> {
-        for (const rule of rules) {
-            try {
-                await chrome.storage.local.set({ [`rule_${rule.id}`]: rule });
-            } catch (error) {
-                console.warn(`导入规则失败: ${rule.name}`, error);
+    async function importRules(rules: Rule[]): Promise<void> {
+        try {
+            // 先获取现有的规则，避免覆盖
+            const existingRules = await ruleStore.getAllRules();
+            const existingRuleIds = new Set(existingRules.map(r => r.id));
+            
+            // 只导入新的规则
+            const rulesToImport = rules.filter(r => !existingRuleIds.has(r.id));
+            
+            for (const rule of rulesToImport) {
+                await ruleStore.saveRule(rule);
             }
+            
+            console.log(`成功导入 ${rulesToImport.length} 条规则`);
+        } catch (error) {
+            console.error('批量导入规则失败:', error);
+            throw error;
         }
     }
 
