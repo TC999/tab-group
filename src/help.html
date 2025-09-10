@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Group Help</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/help.css">
+</head>
+<body>
+    <div class="container-fluid p-3">
+        <div class="header mb-3 d-flex justify-content-between align-items-center">
+            <h2>Tab Group 使用帮助</h2>
+            <button id="btn-back" class="btn btn-sm btn-primary">
+                返回
+            </button>
+        </div>
+        
+        <!-- 帮助内容 -->
+        <div class="help-content">
+            <div class="accordion" id="helpAccordion">
+                <!-- 基本介绍 -->
+                <div class="card">
+                    <div class="card-header" id="headingIntro">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIntro">
+                                1. 基本介绍
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseIntro" class="collapse show" aria-labelledby="headingIntro" data-bs-parent="#helpAccordion">
+                        <div class="card-body">
+                            <p>Tab Group 是一个浏览器标签管理扩展，可以帮助您更好地组织和管理浏览器中的标签页。</p>
+                            <p>主要功能包括：</p>
+                            <ul>
+                                <li>创建和管理标签组</li>
+                                <li>保存和恢复标签组</li>
+                                <li>按域名自动分组标签</li>
+                                <li>设置URL规则自动分组</li>
+                                <li>使用快捷键快速操作</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 如何使用 -->
+                <div class="card">
+                    <div class="card-header" id="headingUsage">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUsage">
+                                2. 如何使用
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseUsage" class="collapse" aria-labelledby="headingUsage" data-bs-parent="#helpAccordion">
+                        <div class="card-body">
+                            <h4>创建标签组</h4>
+                            <p>有两种方法可以创建标签组：</p>
+                            <ol>
+                                <li>使用快捷键 <kbd>Alt+Shift+G</kbd> 将当前标签添加到新组或从组中移除</li>
+                                <li>使用"按域名分组"功能自动根据域名创建标签组</li>
+                            </ol>
+                            
+                            <h4>保存标签组</h4>
+                            <p>点击标签组旁边的"保存"按钮，可以将当前标签组保存起来，以便日后恢复。</p>
+                            
+                            <h4>使用规则自动分组</h4>
+                            <p>点击"规则"按钮，设置URL匹配规则，系统会根据这些规则自动为新打开的标签页分组。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 快捷键 -->
+                <div class="card">
+                    <div class="card-header" id="headingShortcuts">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseShortcuts">
+                                3. 快捷键
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseShortcuts" class="collapse" aria-labelledby="headingShortcuts" data-bs-parent="#helpAccordion">
+                        <div class="card-body">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>快捷键</th>
+                                        <th>功能</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><kbd>Alt+Shift+G</kbd></td>
+                                        <td>切换标签分组</td>
+                                    </tr>
+                                    <tr>
+                                        <td><kbd>Alt+Shift+C</kbd></td>
+                                        <td>移除当前标签组</td>
+                                    </tr>
+                                    <tr>
+                                        <td><kbd>数字键</kbd></td>
+                                        <td>激活对应编号的标签组</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p class="text-sm text-gray-600">注意：您可以在浏览器的扩展管理页面自定义这些快捷键。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 高级功能 -->
+                <div class="card">
+                    <div class="card-header" id="headingAdvanced">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAdvanced">
+                                4. 高级功能
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseAdvanced" class="collapse" aria-labelledby="headingAdvanced" data-bs-parent="#helpAccordion">
+                        <div class="card-body">
+                            <h4>规则表达式</h4>
+                            <p>在规则设置中，您可以使用正则表达式来匹配URL。例如：</p>
+                            <ul>
+                                <li><code>^https?:\/\/.*\.google\.com\/</code> - 匹配所有Google相关网站</li>
+                                <li><code>^https?:\/\/(www\.)?github\.com\/</code> - 匹配GitHub网站</li>
+                            </ul>
+                            
+                            <h4>导入/导出</h4>
+                            <p>您可以使用导入/导出功能来备份和恢复您的标签组和规则设置。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="jslib/bootstrap.bundle.min.js"></script>
+    <script src="help.js" type="module"></script>
+</body>
+</html>

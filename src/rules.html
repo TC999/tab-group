@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Group Rules</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/rules.css">
+</head>
+<body>
+    <div class="container-fluid p-3">
+        <div class="header mb-3 d-flex justify-content-between align-items-center">
+            <h2>标签分组规则</h2>
+            <button id="btn-back" class="btn btn-sm btn-primary">
+                返回
+            </button>
+        </div>
+        
+        <!-- 新建规则 -->
+        <div class="rule-form card p-3 mb-3">
+            <h4>新建规则</h4>
+            <div class="form-group">
+                <label for="rule-name">规则名称</label>
+                <input type="text" id="rule-name" class="form-control" placeholder="输入规则名称">
+            </div>
+            <div class="form-group">
+                <label for="rule-pattern">URL 模式 (正则表达式)</label>
+                <input type="text" id="rule-pattern" class="form-control" placeholder="输入URL匹配模式">
+            </div>
+            <div class="form-group">
+                <label for="rule-color">组颜色</label>
+                <select id="rule-color" class="form-control">
+                    <option value="blue">蓝色</option>
+                    <option value="red">红色</option>
+                    <option value="yellow">黄色</option>
+                    <option value="green">绿色</option>
+                    <option value="purple">紫色</option>
+                    <option value="cyan">青色</option>
+                    <option value="pink">粉色</option>
+                    <option value="orange">橙色</option>
+                    <option value="gray">灰色</option>
+                </select>
+            </div>
+            <button id="btn-add-rule" class="btn btn-primary mt-2">
+                添加规则
+            </button>
+        </div>
+        
+        <!-- 规则列表 -->
+        <div class="rules-list">
+            <h4>现有规则</h4>
+            <div id="rules-container" class="max-h-[400px] overflow-y-auto">
+                <!-- 规则将在这里动态生成 -->
+            </div>
+        </div>
+        
+        <!-- 成功提示 -->
+        <div id="successTip" class="position-fixed bottom-3 right-3 bg-success text-white px-3 py-2 rounded shadow-lg" style="display: none;">
+            <span></span>
+        </div>
+    </div>
+
+    <script src="jslib/bootstrap.bundle.min.js"></script>
+    <script src="rules.js" type="module"></script>
+</body>
+</html>

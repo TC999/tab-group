@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Group</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/popup.css">
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <!-- 顶部工具栏 -->
+        <div class="toolbar d-flex justify-content-between align-items-center p-2 bg-light border-bottom">
+            <div class="btn-group">
+                <button id="current-collapse-all" class="btn btn-sm btn-primary">
+                    折叠/展开所有
+                </button>
+            </div>
+            <div class="btn-group">
+                <button id="dropdown-move-to" class="btn btn-sm btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                    移动到
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <li><button class="dropdown-item text-truncate">新窗口</button></li>
+                    <li><hr class="dropdown-divider d-none"></li>
+                    <li><button class="dropdown-item text-truncate d-none">没有其他窗口</button></li>
+                </div>
+            </div>
+            <div class="btn-group">
+                <button id="btn-rules" class="btn btn-sm btn-info">
+                    规则
+                </button>
+                <button id="btn-help" class="btn btn-sm btn-light">
+                    帮助
+                </button>
+            </div>
+        </div>
+        
+        <!-- 标签组列表 -->
+        <div id="current-tab-list" class="tab-list max-h-[500px] overflow-y-auto">
+            <!-- 标签组和标签页将在这里动态生成 -->
+        </div>
+        
+        <!-- 保存的标签组 -->
+        <div class="saved-groups mt-3 p-2 border-top">
+            <h5 class="text-center">已保存的标签组</h5>
+            <div id="saved-groups-list" class="max-h-[200px] overflow-y-auto">
+                <!-- 已保存的标签组将在这里动态生成 -->
+            </div>
+        </div>
+        
+        <!-- 成功提示 -->
+        <div id="successTip" class="position-fixed bottom-3 right-3 bg-success text-white px-3 py-2 rounded shadow-lg" style="display: none;">
+            <span></span>
+        </div>
+    </div>
+
+    <script src="jslib/bootstrap.bundle.min.js"></script>
+    <script src="popup.js" type="module"></script>
+</body>
+</html>
