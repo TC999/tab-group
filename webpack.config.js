@@ -63,6 +63,14 @@ export default {
         {
           from: 'src/css/**/*.css',
           to: 'css/[name][ext]'
+        },
+        {
+          from: 'src/jslib/**/*',
+          to: 'jslib/[name][ext]'
+        },
+        {
+          from: 'src/img/**/*',
+          to: 'img/[name][ext]'
         }
       ]
     }),
