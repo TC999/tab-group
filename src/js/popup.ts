@@ -1299,6 +1299,8 @@ function initPopup(): void {
   // 等待DOM加载完成
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
+      // 移除body上的d-none类，显示页面
+      document.body.classList.remove('d-none');
       // 初始化标签页切换
       initTabs();
       
@@ -1322,6 +1324,8 @@ function initPopup(): void {
       (window as any).Shortcut = Shortcut;
     });
   } else {
+    // 移除body上的d-none类，显示页面
+    document.body.classList.remove('d-none');
     // 初始化标签页切换
     initTabs();
     
